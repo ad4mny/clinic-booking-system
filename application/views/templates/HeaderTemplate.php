@@ -17,15 +17,15 @@
 
 <body class="bg-light">
 
-    <div class="w-auto position-absolute start-50 translate-middle mt-5">
+    <div class="w-auto position-absolute m-5" style="top:5%;">
         <?php
         if ($this->session->tempdata('notice') != NULL) {
-            echo '<div class="alert alert-light rounded-3 shadow-sm alert-dismissible fade show" role="alert">';
+            echo '<div class="alert alert-light rounded-3 alert-dismissible fade show" role="alert">';
             echo '<p class="mb-0 text-success"><i class="fas fa-info-circle fa-fw fa-sm me-1"></i> ' . $this->session->tempdata('notice') . '</p>';
             echo '</div>';
         }
         if ($this->session->tempdata('error') != NULL) {
-            echo '<div class="alert alert-light rounded-3 shadow-sm alert-dismissible fade show" role="alert">';
+            echo '<div class="alert alert-light rounded-3 alert-dismissible fade show" role="alert">';
             echo '<p class="mb-0 text-danger"><i class="fas fa-exclamation-circle fa-fw fa-sm me-1"></i> ' . $this->session->tempdata('error') . '</p>';
             echo '</div>';
         }
