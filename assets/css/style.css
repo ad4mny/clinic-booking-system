@@ -1,5 +1,9 @@
 body,
 html {
+    background-image: url('../image/background.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     font-family: 'Muli', sans-serif;
     margin: 0;
     padding: 0;
