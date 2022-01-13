@@ -1,3 +1,6 @@
+</div>
+</div>
+
 <footer>
     <div class="text-center py-2">
         <small class="text-muted">Clinic Management System</small>
