@@ -28,14 +28,25 @@ class LoginController extends CI_Controller
         $return = $this->LoginModel->login($username, $password);
 
         if ($return !== NULL) {
+            $this->session->set_userdata('fullName', $return['firstName'] . ' ' . $return['lastName']);
             $this->session->set_userdata('userID', $return['userID']);
             $this->session->set_userdata('role', $return['role']);
             $this->session->set_tempdata('notice', 'Login successful.', 1);
 
-            if ($this->session->userdata('role') == 1) {
-                redirect(base_url() . 'doctor/dashboard');
-            } else {
-                redirect(base_url() . 'dashboard');
+            switch ($this->session->userdata('role')) {
+                case '2':
+                    redirect(base_url() . 'admin/dashboard');
+                    break;
+                case '1':
+                    redirect(base_url() . 'doctor/dashboard');
+                    break;
+                case '0':
+                    redirect(base_url() . 'dashboard');
+                    break;
+                default:
+                    $this->session->set_tempdata('error', 'An error occured while determining your role, please try again later.', 1);
+                    redirect(base_url() . 'logout');
+                    break;
             }
         } else {
             $this->session->set_tempdata('error', 'Wrong username or password entered.', 1);
@@ -57,19 +68,16 @@ class LoginController extends CI_Controller
             // Return password not match
             $this->session->set_tempdata('error', 'Password does not match, please register again.', 1);
             redirect(base_url() . 'register');
-
         } else if ($this->checkUsername($username) !== null) {
 
             // Return username not available
             $this->session->set_tempdata('error', 'Username has been taken, please choose another username.', 1);
             redirect(base_url() . 'register');
-
         } else {
             if ($this->LoginModel->register($firstName, $lastName, $username, md5($password), $role) === true) {
-                
+
                 // Login the user
                 $this->login($username, $password);
-
             } else {
 
                 // Return error registration

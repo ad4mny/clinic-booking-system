@@ -7,6 +7,10 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'LoginController/index/login';
 $route['register'] = 'LoginController/index/register';
-
 $route['login/submit'] = 'LoginController/login';
 $route['register/submit'] = 'LoginController/register';
+$route['logout'] = 'LoginController/logout';
+
+$route['(:any)'] = 'PatientController/index/$1';
+
+$route['doctor/(:any)'] = 'DoctorController/index/$1';
