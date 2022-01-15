@@ -22,6 +22,6 @@
                 <div class="list-group shadow-sm">
                     <a href="<?php echo base_url(); ?>dashboard" class="list-group-item list-group-item-action <?php if ($this->uri->segment(1) == 'dashboard') echo 'active'; ?>">Appointment</a>
                     <a href="<?php echo base_url(); ?>profile" class="list-group-item list-group-item-action <?php if ($this->uri->segment(1) == 'profile') echo 'active'; ?>">Profile</a>
-                    <a href="<?php echo base_url(); ?>logout" class="list-group-item list-group-item-action text-danger <?php if ($this->uri->segment(1) == 'profile') echo 'active'; ?>">Logout</a>
+                    <a href="<?php echo base_url(); ?>logout" class="list-group-item list-group-item-action text-danger <?php if ($this->uri->segment(1) == 'logout') echo 'active'; ?>">Logout</a>
                 </div>
             </div>
