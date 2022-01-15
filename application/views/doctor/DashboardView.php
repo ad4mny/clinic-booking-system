@@ -9,7 +9,7 @@
                     <p class="text-secondary mb-0"><?php echo date('Y-m-d e H:i:s A'); ?></p>
                 </div>
                 <div class="col-4 text-end">
-                    <button class="btn btn-primary text-white">Check Schedule</button>
+                    <a href="<?php echo base_url(); ?>doctor/schedule" class="btn btn-primary text-white">Check Schedule</a>
                 </div>
             </div>
             <div class="row m-auto">

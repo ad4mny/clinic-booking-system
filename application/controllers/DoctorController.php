@@ -15,6 +15,10 @@ class DoctorController extends CI_Controller
         $this->load->view('doctor/templates/NavigationTemplate');
 
         switch ($page) {
+            case 'schedule':
+            $data['schedules'] = $this->getScheduleList();
+                $this->load->view('doctor/ScheduleView', $data);
+                break;
             default:
             $data['appointments'] = $this->getAppointmentList();
                 $this->load->view('doctor/DashboardView', $data);
@@ -27,6 +31,11 @@ class DoctorController extends CI_Controller
     public function getAppointmentList()
     {
         return $this->DoctorModel->getAppointmentList();
+    }
+
+    public function getScheduleList()
+    {
+        return $this->DoctorModel->getScheduleList();
     }
 
 }

@@ -9,6 +9,7 @@ class DoctorModel extends CI_Model
         $this->db->from('appointments');
         $this->db->join('users', 'appointments.doctorID = users.userID');
         $this->db->where('doctorID', $_SESSION['userID']);
+        $this->db->where('patientID !=', NULL);
         $this->db->order_by('status', 'DESC');
         $this->db->order_by('appointmentID', 'DESC');
         $data = $this->db->get()->result_array();
@@ -24,5 +25,17 @@ class DoctorModel extends CI_Model
         }
 
         return $data;
+    }
+
+    public function getScheduleList()
+    {
+        $this->db->select('*');
+        $this->db->from('appointments');
+        $this->db->join('users', 'appointments.doctorID = users.userID');
+        $this->db->where('doctorID', $_SESSION['userID']);
+        $this->db->where('patientID', NULL);
+        $this->db->where('status', 'Available');
+        $this->db->order_by('appointmentID', 'DESC');
+        return $this->db->get()->result_array();
     }
 }
