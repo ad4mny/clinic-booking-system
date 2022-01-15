@@ -14,3 +14,7 @@ $route['logout'] = 'LoginController/logout';
 $route['(:any)'] = 'PatientController/index/$1';
 
 $route['doctor/(:any)'] = 'DoctorController/index/$1';
+$route['doctor/dashboard/appointment/view/(:num)'] = 'DoctorController/getAppointmentInfo/$1';
+$route['doctor/dashboard/appointment/delete/(:num)'] = 'DoctorController/deleteAppoinment/$1';
+$route['doctor/dashboard/followup/view/(:num)'] = 'DoctorController/getFollowupInfo/$1';
+$route['doctor/dashboard/followup/delete/(:num)'] = 'DoctorController/deleteFollowup/$1';
