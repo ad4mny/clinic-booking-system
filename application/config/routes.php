@@ -12,6 +12,7 @@ $route['register/submit'] = 'LoginController/register';
 $route['logout'] = 'LoginController/logout';
 
 $route['(:any)'] = 'PatientController/index/$1';
+$route['schedule/book/(:num)'] = 'PatientController/setScheduleBooking/$1';
 
 $route['doctor/(:any)'] = 'DoctorController/index/$1';
 

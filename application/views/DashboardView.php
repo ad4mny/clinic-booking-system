@@ -4,9 +4,6 @@
             <h3 class="text-dark mb-0">Appointments</h3>
             <p class="text-secondary">Your upcoming appointment list.</p>
         </div>
-        <div class="col-4 text-end">
-            <button class="btn btn-primary text-white">New Appointment</button>
-        </div>
     </div>
     <?php
     if (

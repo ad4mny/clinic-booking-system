@@ -42,4 +42,5 @@
                 </h4>
             </a>
         </span>
+        <a href="<?php echo base_url(); ?>logout" class="btn btn-danger text-white">Logout</a>
     </nav>

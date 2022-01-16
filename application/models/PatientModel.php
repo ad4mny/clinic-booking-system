@@ -22,5 +22,26 @@ class PatientModel extends CI_Model
         }
 
         return $data;
+    }    
+    
+    public function getAvailableAppointmentList()
+    {
+        $this->db->select('*');
+        $this->db->from('appointments');
+        $this->db->join('users', 'appointments.doctorID = users.userID');
+        $this->db->where('patientID', NULL);
+        $this->db->where('status', 'Available');
+        $this->db->order_by('appointmentID', 'DESC');
+        return $this->db->get()->result_array();
+    } 
+    
+    public function setScheduleBooking($appointmentID)
+    {
+        $appointments = array(
+            'patientID' => $_SESSION['userID'],
+            'status' => 'Upcoming'
+        );
+        $this->db->where('appointmentID', $appointmentID);
+        return $this->db->update('appointments', $appointments);
     }
 }
