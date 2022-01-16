@@ -58,7 +58,7 @@
                                         <small class="text-secondary mb-0"><?php echo $appointment['time']; ?></small>
                                     </div>
                                     <div class="col-4 text-end">
-                                        <a href="<?php echo base_url() . 'doctor/dashboard/appointment/delete/' . $appointment['appointmentID']; ?>" class="btn btn-danger text-white">
+                                        <a href="<?php echo base_url() . 'admin/dashboard/appointment/delete/' . $appointment['appointmentID']; ?>" class="btn btn-danger text-white">
                                             Delete
                                         </a>
                                     </div>
@@ -93,7 +93,7 @@
                                             <p class="mb-0"><?php echo $followup['date'] . ' UTC ' . $followup['time']; ?></p>
                                         </div>
                                         <div class="col-4">
-                                            <a href="<?php echo base_url() . 'doctor/dashboard/followup/delete/' . $followup['followupID']; ?>" class="btn btn-danger text-white">
+                                            <a href="<?php echo base_url() . 'admin/dashboard/appointment/delete/' . $followup['followupID']; ?>" class="btn btn-danger text-white">
                                                 Delete
                                             </a>
                                         </div>
