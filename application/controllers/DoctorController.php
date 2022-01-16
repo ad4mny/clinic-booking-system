@@ -130,4 +130,14 @@ class DoctorController extends CI_Controller
         }
         redirect(base_url() . 'doctor/dashboard');
     }
+    
+    public function setUnavailable($appointmentID)
+    {
+        if ($this->DoctorModel->setUnavailable($appointmentID) != false) {
+            $this->session->set_tempdata('notice', 'Success deleting the schedule.');
+        } else {
+            $this->session->set_tempdata('error', 'Failed deleting the schedule.');
+        }
+        redirect(base_url() . 'doctor/schedule');
+    }
 }

@@ -124,4 +124,10 @@ class DoctorModel extends CI_Model
         $this->db->where('followupID', $followupID);
         return $this->db->delete('followups');
     }
+    
+    public function setUnavailable($appointmentID)
+    {
+        $this->db->where('appointmentID', $appointmentID);
+        return $this->db->delete('appointments');
+    }
 }
