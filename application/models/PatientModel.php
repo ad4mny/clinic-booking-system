@@ -22,8 +22,8 @@ class PatientModel extends CI_Model
         }
 
         return $data;
-    }    
-    
+    }
+
     public function getAvailableAppointmentList()
     {
         $this->db->select('*');
@@ -33,8 +33,8 @@ class PatientModel extends CI_Model
         $this->db->where('status', 'Available');
         $this->db->order_by('appointmentID', 'DESC');
         return $this->db->get()->result_array();
-    } 
-    
+    }
+
     public function setScheduleBooking($appointmentID)
     {
         $appointments = array(
@@ -44,4 +44,24 @@ class PatientModel extends CI_Model
         $this->db->where('appointmentID', $appointmentID);
         return $this->db->update('appointments', $appointments);
     }
+
+    public function getProfileInfo()
+    {
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('userID', $_SESSION['userID']);
+        return $this->db->get()->row_array();
+    }
+
+    public function setProfileUpdate($username, $firstName, $lastName)
+    {
+        $users = array(
+            'username' => $username,
+            'firstName' => $firstName,
+            'lastName' => $lastName
+        );
+        $this->db->where('userID', $_SESSION['userID']);
+        return $this->db->update('users', $users);
+    }
+    
 }

@@ -13,6 +13,8 @@ $route['logout'] = 'LoginController/logout';
 
 $route['(:any)'] = 'PatientController/index/$1';
 $route['schedule/book/(:num)'] = 'PatientController/setScheduleBooking/$1';
+$route['profile/update'] = 'PatientController/getProfileUpdate/$1';
+$route['profile/update/submit'] = 'PatientController/setProfileUpdate';
 
 $route['doctor/(:any)'] = 'DoctorController/index/$1';
 

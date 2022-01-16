@@ -1,12 +1,13 @@
     <nav class="navbar navbar-light bg-white px-4">
-        <span class="navbar-brand mb-0 text-white d-flex">
+        <a href="<?php echo base_url(); ?>dashboard" class="text-decoration-none d-flex py-1">
             <h4 class="text-primary mb-0 me-2">
                 <i class="fas fa-heartbeat fa-fw"></i>
             </h4>
             <h4 class="text-primary mb-0">
                 Health <small class="text-secondary">Clinic Booking</small>
             </h4>
-        </span>
+        </a>
+        <a href="<?php echo base_url(); ?>logout" class="btn btn-danger text-white">Logout</a>
     </nav>
 
     <div class="container p-5">
@@ -23,6 +24,5 @@
                     <a href="<?php echo base_url(); ?>dashboard" class="list-group-item list-group-item-action <?php if ($this->uri->segment(1) == 'dashboard') echo 'active'; ?>">Dashboard</a>
                     <a href="<?php echo base_url(); ?>appointment" class="list-group-item list-group-item-action <?php if ($this->uri->segment(1) == 'appointment') echo 'active'; ?>">New Appointment</a>
                     <a href="<?php echo base_url(); ?>profile" class="list-group-item list-group-item-action <?php if ($this->uri->segment(1) == 'profile') echo 'active'; ?>">Profile</a>
-                    <a href="<?php echo base_url(); ?>logout" class="list-group-item list-group-item-action text-danger <?php if ($this->uri->segment(1) == 'logout') echo 'active'; ?>">Logout</a>
                 </div>
             </div>
