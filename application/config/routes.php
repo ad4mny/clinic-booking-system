@@ -14,7 +14,16 @@ $route['logout'] = 'LoginController/logout';
 $route['(:any)'] = 'PatientController/index/$1';
 
 $route['doctor/(:any)'] = 'DoctorController/index/$1';
+
 $route['doctor/dashboard/appointment/view/(:num)'] = 'DoctorController/getAppointmentInfo/$1';
-$route['doctor/dashboard/appointment/delete/(:num)'] = 'DoctorController/deleteAppoinment/$1';
+$route['doctor/dashboard/appointment/update/(:num)'] = 'DoctorController/getAppointmentUpdate/$1';
+$route['doctor/dashboard/appointment/update/submit'] = 'DoctorController/setAppointmentUpdate';
+$route['doctor/dashboard/appointment/delete/(:num)'] = 'DoctorController/deleteAppointment/$1';
+
+$route['doctor/dashboard/followup/add/(:num)'] = 'DoctorController/addFollowup/$1';
 $route['doctor/dashboard/followup/view/(:num)'] = 'DoctorController/getFollowupInfo/$1';
+$route['doctor/dashboard/followup/update/(:num)'] = 'DoctorController/getFollowupUpdate/$1';
+$route['doctor/dashboard/followup/update/submit'] = 'DoctorController/setFollowupUpdate';
 $route['doctor/dashboard/followup/delete/(:num)'] = 'DoctorController/deleteFollowup/$1';
+
+$route['doctor/schedule/unavailable/(:num)'] = 'DoctorController/setUnavailable/$1';
