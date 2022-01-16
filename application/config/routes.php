@@ -30,3 +30,7 @@ $route['doctor/dashboard/followup/update/submit'] = 'DoctorController/setFollowu
 $route['doctor/dashboard/followup/delete/(:num)'] = 'DoctorController/deleteFollowup/$1';
 
 $route['doctor/schedule/unavailable/(:num)'] = 'DoctorController/setUnavailable/$1';
+
+$route['admin/dashboard'] = 'AdminController';
+$route['admin/dashboard/appointment/submit'] = 'AdminController/setNewAppointment';
+$route['admin/dashboard/appointment/delete/(:num)'] = 'AdminController/deleteAppointment/$1';
