@@ -6,25 +6,36 @@
             </h3>
             <p class="text-secondary mb-0"><?php echo date('Y-m-d e H:i:s A'); ?></p>
         </div>
+        <div class="col-3 text-end">
+            <a href="<?php echo base_url(); ?>admin/patient" class="btn btn-primary text-white">Patient List</a>
+        </div>
     </div>
     <div class="row">
         <div class="col-4 border-end pe-3">
             <form class="row g-2" method="post" action="<?php echo base_url(); ?>admin/dashboard/appointment/submit">
                 <div class="col-12">
                     <small class="text-secondary ">Appointment Info</small>
-                    <textarea class="form-control" name="description" max="200" col="5" placeholder="Max 200 characters."></textarea>
+                    <textarea class="form-control" name="description" max="200" col="5" placeholder="Max 200 characters." required></textarea>
+                </div>
+                <div class="col-12">
+                    <small class="text-secondary ">Choose Doctor</small>
+                    <select class="form-select" name="doctorID" required>
+                        <?php foreach ($doctors as $doctor) {
+                            echo '<option value="' . $doctor['userID'] . '">Dr ' . $doctor['firstName'] . ' ' . $doctor['lastName'] . '</option>';
+                        } ?>
+                    </select>
                 </div>
                 <div class="col-6">
                     <small class="text-secondary ">Date</small>
-                    <input type="date" class="form-control" name="date">
+                    <input type="date" class="form-control" name="date" required>
                 </div>
                 <div class="col-6">
                     <small class="text-secondary ">Time</small>
-                    <input type="time" class="form-control" name="time">
+                    <input type="time" class="form-control" name="time" required>
                 </div>
                 <div class="col-12">
                     <small class="text-secondary ">Status</small>
-                    <select class="form-select" name="status">
+                    <select class="form-select" name="status" required>
                         <option value="Available">Available</option>
                     </select>
                 </div>

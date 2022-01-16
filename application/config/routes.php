@@ -34,3 +34,4 @@ $route['doctor/schedule/unavailable/(:num)'] = 'DoctorController/setUnavailable/
 $route['admin/dashboard'] = 'AdminController';
 $route['admin/dashboard/appointment/submit'] = 'AdminController/setNewAppointment';
 $route['admin/dashboard/appointment/delete/(:num)'] = 'AdminController/deleteAppointment/$1';
+$route['admin/patient'] = 'AdminController/getPatientList';

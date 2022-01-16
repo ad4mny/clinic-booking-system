@@ -23,10 +23,18 @@ class AdminModel extends CI_Model
         return $data;
     }
 
-    public function setNewAppointment($description, $date, $time, $status)
+    public function getDoctorList()
+    {
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('role', '1');
+        return $this->db->get()->result_array();
+    }
+
+    public function setNewAppointment($doctorID, $description, $date, $time, $status)
     {
         $appointments = array(
-            'doctorID' => NULL,
+            'doctorID' => $doctorID,
             'patientID' => NULL,
             'description' => $description,
             'date' => $date,
@@ -42,5 +50,12 @@ class AdminModel extends CI_Model
         $this->db->where('appointmentID', $appointmentID);
         return $this->db->delete('appointments');
     }
-    
+
+    public function getPatientList()
+    {
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('role', '0');
+        return $this->db->get()->result_array();
+    }
 }
