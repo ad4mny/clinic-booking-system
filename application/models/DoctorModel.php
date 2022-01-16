@@ -60,8 +60,16 @@ class DoctorModel extends CI_Model
         return $data;
     }
 
-    public function setAppointmentUpdate()
+    public function setAppointmentUpdate($appointmentID, $description, $date, $time, $status)
     {
+        $appointments = array(
+            'description' => $description,
+            'date' => $date,
+            'time' => $time,
+            'status' => $status
+        );
+        $this->db->where('appointmentID', $appointmentID);
+        return $this->db->update('appointments', $appointments);
     }
 
     public function deleteAppointment($appointmentID)
@@ -86,14 +94,29 @@ class DoctorModel extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('followups');
+        $this->db->where('followupID', $followupID);
+        $data = $this->db->get()->row_array();
+
+        $this->db->select('*');
+        $this->db->from('followups');
         $this->db->join('appointments', 'appointments.appointmentID = followups.appointmentID');
         $this->db->join('users', 'appointments.patientID = users.userID');
         $this->db->where('followupID', $followupID);
-        return $this->db->get()->result_array();
+        $data['appointment'] = $this->db->get()->row_array();
+
+        return $data;
     }
 
-    public function setFollowupUpdate()
+    public function setFollowupUpdate($followupID, $description, $date, $time, $status)
     {
+        $followups = array(
+            'description' => $description,
+            'date' => $date,
+            'time' => $time,
+            'status' => $status
+        );
+        $this->db->where('followupID', $followupID);
+        return $this->db->update('followups', $followups);
     }
 
     public function deleteFollowup($followupID)

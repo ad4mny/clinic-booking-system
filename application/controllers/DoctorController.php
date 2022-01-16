@@ -55,6 +55,18 @@ class DoctorController extends CI_Controller
 
     public function setAppointmentUpdate()
     {
+        $appointmentID = $this->input->post('appointmentID');
+        $description = $this->input->post('description');
+        $date = $this->input->post('date');
+        $time = $this->input->post('time');
+        $status = $this->input->post('status');
+
+        if ($this->DoctorModel->setAppointmentUpdate($appointmentID, $description, $date, $time, $status) != false) {
+            $this->session->set_tempdata('notice', 'Success updating the appointment.');
+        } else {
+            $this->session->set_tempdata('error', 'Failed updating the appointment.');
+        }
+        redirect(base_url() . 'doctor/dashboard');
     }
 
     public function deleteAppointment($appointmentID)
@@ -95,6 +107,18 @@ class DoctorController extends CI_Controller
 
     public function setFollowupUpdate()
     {
+        $followupID = $this->input->post('followupID');
+        $description = $this->input->post('description');
+        $date = $this->input->post('date');
+        $time = $this->input->post('time');
+        $status = $this->input->post('status');
+
+        if ($this->DoctorModel->setFollowupUpdate($followupID, $description, $date, $time, $status) != false) {
+            $this->session->set_tempdata('notice', 'Success updating the followup.');
+        } else {
+            $this->session->set_tempdata('error', 'Failed updating the followup.');
+        }
+        redirect(base_url() . 'doctor/dashboard');
     }
 
     public function deleteFollowup($followupID)
